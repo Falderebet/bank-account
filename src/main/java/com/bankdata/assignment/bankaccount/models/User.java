@@ -2,20 +2,29 @@ package com.bankdata.assignment.bankaccount.models;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long userId;
 
     private String username;
     private String passwordHash;
     private String email;
-    @ManyToMany()
-    private List<Account> accounts;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + userId +
+                ", username='" + username + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+// TODO: figure out if a list of accounts are needed.
+    //@ManyToMany()
+    //private List<Account> accounts;
 
     public User() {}
 
@@ -25,12 +34,12 @@ public class User {
         this.email = email;
     }
 
-    public long getId() {
-        return id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUserId(long id) {
+        this.userId = id;
     }
 
     public String getUsername() {

@@ -8,7 +8,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long transactionId;
 
     @ManyToOne
     private Account sourceAccount;
@@ -17,12 +17,12 @@ public class Transaction {
     private Account destinationAccount;
     private double amount;
 
-    public long getId() {
-        return id;
+    public long getTransactionId() {
+        return transactionId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setTransactionId(long id) {
+        this.transactionId = id;
     }
 
     public Account getSourceAccount() {

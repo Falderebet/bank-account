@@ -2,47 +2,59 @@ package com.bankdata.assignment.bankaccount.models;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long accountId;
 
-    @ManyToOne
-    @JoinColumn(name = "bank_id")
-    private Bank bank;
+    // TODO: make it handle multiple users to one account.
+    // @ManyToMany()
+    // private List<User> users;
 
-    @ManyToMany()
-    private List<User> users;
+    @OneToOne
+    private User user;
+
+    // TODO: get "unique" tag working.
+    // @Column(unique = true)
+    private int accountNumber;
 
     private double balance;
 
-    public Account(Bank bank, List<User> users, double balance) {
-        this.bank = bank;
-        this.users = users;
+    public Account(User user, double balance) {
+        this.user = user;
         this.balance = balance;
     }
 
     public Account() {}
 
-    public Account(Bank bank, long balance) {
-        this.bank = bank;
+    public Account(long balance) {
         this.balance = balance;
     }
 
-    public Account(Long balance) {
-        this.balance = balance;
+    public long getAccountId() {
+        return accountId;
     }
 
-    public Long getId() {
-        return id;
+    public void setAccountId(long id) {
+        this.accountId = id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getBalance() {
@@ -55,7 +67,8 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + this.id + ", balance=" + this.balance + ", bank=" + this.bank + "}";
+        return "Account{" + "id=" + this.accountId + ", balance=" + this.balance + ", users=" + this.user
+                + ", accountnumber=" + this.accountNumber + "}";
     }
 
 }
