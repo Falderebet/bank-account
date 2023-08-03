@@ -1,9 +1,20 @@
 package com.bankdata.assignment.bankaccount.dtos;
 
+import com.bankdata.assignment.bankaccount.models.User;
+
 public class TransferRequest {
     private int sourceAccountNumber;
     private int destinationAccountNumber;
+    private User sourceUser;
     private double amount;
+
+    public User getSourceUser() {
+        return sourceUser;
+    }
+
+    public void setSourceUser(User sourceUser) {
+        this.sourceUser = sourceUser;
+    }
 
     public int getSourceAccountNumber() {
         return sourceAccountNumber;

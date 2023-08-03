@@ -13,21 +13,31 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import static java.lang.Integer.parseInt;
 
 @Configuration
 public class LoadDatabase {
 
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+    private Random random;
 
 
     @Bean
     @Transactional
     CommandLineRunner initDatabase(AccountRepository accountRepository, UserRepository userRepository) {
+        random = new Random();
         User user = new User();
         user.setEmail("frederik@mail.com");
         user.setUsername("falderebet");
-        user.setPasswordHash("gjerg3ijg341");
+        user.setPasswordHash(Integer.toString((random.nextInt(2389423))));
         userRepository.save(user);
+
+        Account account = new Account();
+        account.setAccountNumber(random.nextInt(2389423));
+        account.setUser(user);
+        account.setBalance(100);
 
 
         return args -> {
@@ -36,7 +46,7 @@ public class LoadDatabase {
             //log.info("Preloading " + accountRepository.save(new Account(160L)));
             //log.info("Preloading " + accountRepository.save(new Account(110L)));
 
-            log.info("Preloading " + accountRepository.save(new Account(user,190L)));
+            log.info("Preloading " + accountRepository.save(account));
             log.info("Finding... " + accountRepository.findAll());
         };
     }

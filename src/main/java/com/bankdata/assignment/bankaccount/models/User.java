@@ -9,8 +9,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
 
+    // TODO: get unique tag working
     private String username;
     private String passwordHash;
+
+    // TODO: get unique tag working
     private String email;
 
     @Override
@@ -22,7 +25,7 @@ public class User {
                 ", email='" + email + '\'' +
                 '}';
     }
-// TODO: figure out if a list of accounts are needed.
+    // TODO: figure out if a list of accounts are needed.
     //@ManyToMany()
     //private List<Account> accounts;
 
