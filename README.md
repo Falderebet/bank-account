@@ -9,4 +9,4 @@ The project is written in Java, with use of the spring boot framework.
 
 A very "small" angular frontend has also been developed and can be found at - https://github.com/Falderebet/bank-frontend
 
-The project uses a SQLite database and Jpa to query.
+The project uses SQLite and Jpa to query.
