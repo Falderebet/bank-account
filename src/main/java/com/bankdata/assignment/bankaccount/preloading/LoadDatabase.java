@@ -31,7 +31,7 @@ public class LoadDatabase {
         User user = new User();
         user.setEmail("frederik@mail.com");
         user.setUsername("falderebet");
-        user.setPasswordHash(Integer.toString((random.nextInt(2389423))));
+        user.setPasswordHash("");
         userRepository.save(user);
 
         Account account = new Account();
@@ -41,11 +41,6 @@ public class LoadDatabase {
 
 
         return args -> {
-            //log.info("Preloading " + accountRepository.save(new Account(100L)));
-            //log.info("Preloading " + accountRepository.save(new Account(120L)));
-            //log.info("Preloading " + accountRepository.save(new Account(160L)));
-            //log.info("Preloading " + accountRepository.save(new Account(110L)));
-
             log.info("Preloading " + accountRepository.save(account));
             log.info("Finding... " + accountRepository.findAll());
         };

@@ -10,8 +10,6 @@ public class Account {
     private long accountId;
 
     // TODO: make it handle multiple users to one account.
-    // @ManyToMany()
-    // private List<User> users;
 
     @OneToOne
     private User user;

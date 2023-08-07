@@ -12,22 +12,29 @@ public class User {
     // TODO: get unique tag working
     private String username;
     private String passwordHash;
-
-    // TODO: get unique tag working
-    private String email;
+    private String salt;
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + userId +
+                "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", passwordHash='" + passwordHash + '\'' +
+                ", salt='" + salt + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
-    // TODO: figure out if a list of accounts are needed.
-    //@ManyToMany()
-    //private List<Account> accounts;
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    // TODO: get unique tag working
+    private String email;
 
     public User() {}
 

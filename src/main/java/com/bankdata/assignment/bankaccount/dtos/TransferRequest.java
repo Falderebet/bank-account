@@ -8,6 +8,16 @@ public class TransferRequest {
     private User sourceUser;
     private double amount;
 
+    public String getSourcePassword() {
+        return sourcePassword;
+    }
+
+    public void setSourcePassword(String sourcePassword) {
+        this.sourcePassword = sourcePassword;
+    }
+
+    private String sourcePassword;
+
     public User getSourceUser() {
         return sourceUser;
     }
