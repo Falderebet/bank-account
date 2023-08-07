@@ -5,4 +5,8 @@ list all accounts and transfer funds between accounts.
 
 Furthermore, it also handles authentication of users before they can transfers funds.
 
-A very "small" frontend has also been developed and can be found at - https://github.com/Falderebet/bank-frontend
+The project is written in Java, with use of the spring boot framework.
+
+A very "small" angular frontend has also been developed and can be found at - https://github.com/Falderebet/bank-frontend
+
+The project uses a SQLite database and Jpa to query.
